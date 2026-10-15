@@ -1,6 +1,6 @@
 # 基于长读长测序数据的肿瘤新抗原筛选研究
 
-> **文档定位：** 本 README 是整个研究的**流程导航页**；每个工具的环境、实际运行命令、原生输出及检查方法，放在独立 Markdown 中。当前是**框架版**，尚未填写或验证具体运行命令。
+> **文档定位：** 本 README 是整个研究的**流程导航页**；每个工具的环境、实际运行命令、原生输出及检查方法，放在独立 Markdown 中。HiFi 数据质控与比对的简化命令和参数已整理到独立文档；其余部分仍为框架，具体运行状态待记录。
 
 ## 1. 研究分析总流程
 
@@ -27,6 +27,16 @@
 ```
 
 **原则：** 保留各工具原始结果不修改；统一过滤和跨平台比较都在独立步骤完成；每步保存输入、输出、参数和变异数量，以保证分析可复现。
+
+## 1.1 HiFi 原始数据质控、比对及比对后质控
+
+| 阶段 | 工具 | 运行文档 |
+|---|---|---|
+| 原始 BAM 检查、数据量及读长统计 | SAMtools | [查看说明](docs/00_QC_Alignment/Raw_HiFi_QC.md) |
+| 原始读段质量统计 | Python（pysam、NumPy） | [查看说明](docs/00_QC_Alignment/Raw_HiFi_QC.md) |
+| 参考基因组比对 | pbmm2 | [查看说明](docs/00_QC_Alignment/pbmm2_HiFi.md) |
+| 比对后 BAM 完整性检查 | SAMtools | [查看说明](docs/00_QC_Alignment/Alignment_QC.md) |
+| 比对后覆盖深度统计 | mosdepth | [查看说明](docs/00_QC_Alignment/Alignment_QC.md) |
 
 ## 2. SNV / INDEL 识别（Calling）
 
@@ -96,6 +106,7 @@
 README.md                         # 总方案 / 导航
 
 docs/
+  00_QC_Alignment/              # HiFi 原始质控、比对及比对后质控
   01_SNV_INDEL/                  # 五个调用工具页面
   02_SV/                         # 七个调用工具页面
   03_Postprocessing/             # 统一过滤、整合、评估、预测输入准备
