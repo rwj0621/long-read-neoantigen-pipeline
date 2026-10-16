@@ -2,16 +2,28 @@
 
 [← 返回项目总 README](../../README.md)
 
-使用 SAMtools 检查比对 BAM 的完整性，使用 mosdepth 评估覆盖深度及分布。输入为按坐标排序且具有索引的 BAM。
+使用 SAMtools 检查比对 BAM 的完整性，使用 mosdepth 评估覆盖深度及分布。输入为按坐标排序且具有索引的 BAM。总体统计和可视化分别见 [Cramino / flagstat](Cramino_QC.md) 与 [NanoPlot](NanoPlot_QC.md)。
 
 ## 核心命令
 
 ```bash
-samtools quickcheck -v sample.sorted.bam
-mosdepth --threads 4 --no-per-base sample sample.sorted.bam
+samtools quickcheck \
+    -v \
+    sample.sorted.bam
+
+mosdepth \
+    --threads 4 \
+    --no-per-base \
+    sample \
+    sample.sorted.bam
 ```
 
-`sample` 为输出前缀。若比对阶段未生成索引，可使用 `samtools index sample.sorted.bam` 建立索引。
+`sample` 为输出前缀。若比对阶段未生成索引，先建立索引：
+
+```bash
+samtools index \
+    sample.sorted.bam
+```
 
 ## 关键参数
 

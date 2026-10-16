@@ -7,11 +7,22 @@
 ## 核心命令
 
 ```bash
-pbmm2 index reference.fa reference.hifi.mmi --preset HIFI
+pbmm2 index \
+    reference.fa \
+    reference.hifi.mmi \
+    --preset HIFI
 
-pbmm2 align reference.hifi.mmi reads.fofn sample.sorted.bam \
-    --preset HIFI --min-length 50 --sample sample \
-    --sort --num-threads 56 -J 4 --log-level INFO
+pbmm2 align \
+    reference.hifi.mmi \
+    reads.fofn \
+    sample.sorted.bam \
+    --preset HIFI \
+    --min-length 50 \
+    --sample sample \
+    --sort \
+    --num-threads 56 \
+    -J 4 \
+    --log-level INFO
 ```
 
 `reference.fa` 为参考基因组；`reads.fofn` 为同一样本的原始 BAM 清单，每行一个文件路径。单个 BAM 可直接作为输入。参考索引可复用，不同样本分别比对。

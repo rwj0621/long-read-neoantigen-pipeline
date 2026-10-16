@@ -7,9 +7,20 @@
 ## BAM 完整性
 
 ```bash
-samtools quickcheck -u -v raw.hifi.bam
-samtools view -H raw.hifi.bam > raw.header.sam
-samtools view -c raw.hifi.bam > raw.read_count.txt
+samtools quickcheck \
+    -u \
+    -v \
+    raw.hifi.bam
+
+samtools view \
+    -H \
+    raw.hifi.bam \
+    > raw.header.sam
+
+samtools view \
+    -c \
+    raw.hifi.bam \
+    > raw.read_count.txt
 ```
 
 | 命令 / 参数 | 作用 |
@@ -21,7 +32,10 @@ samtools view -c raw.hifi.bam > raw.read_count.txt
 ## 数据量与读长
 
 ```bash
-samtools stats -@ 32 raw.hifi.bam > raw.stats.txt
+samtools stats \
+    -@ 32 \
+    raw.hifi.bam \
+    > raw.stats.txt
 ```
 
 `-@ 32` 指定输入解压线程数，可按计算资源调整。解析统计结果中的 `SN`（汇总指标）和 `RL`（读长频数分布），获得以下指标：

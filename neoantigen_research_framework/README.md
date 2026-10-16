@@ -37,6 +37,8 @@
 | 参考基因组比对 | pbmm2 | [查看说明](docs/00_QC_Alignment/pbmm2_HiFi.md) |
 | 比对后 BAM 完整性检查 | SAMtools | [查看说明](docs/00_QC_Alignment/Alignment_QC.md) |
 | 比对后覆盖深度统计 | mosdepth | [查看说明](docs/00_QC_Alignment/Alignment_QC.md) |
+| 比对后总体统计及 FLAG 分类 | Cramino、SAMtools flagstat | [查看说明](docs/00_QC_Alignment/Cramino_QC.md) |
+| 比对后质量可视化 | NanoPlot | [查看说明](docs/00_QC_Alignment/NanoPlot_QC.md) |
 
 ## 2. SNV / INDEL 识别（Calling）
 
